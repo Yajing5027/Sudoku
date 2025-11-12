@@ -5,3 +5,6 @@ sudoku/
 ├── checker.py     # checks whether valid and if puzzle solved
 ├── display.py     # displaying Sudoku board
 └── README.md
+
+Math - generator
+(i * base + i // base + j) % size
