@@ -6,5 +6,7 @@ sudoku/
 ├── display.py     # displaying Sudoku board
 └── README.md
 
-Math - generator
-(i * base + i // base + j) % size
+generator info:
+    size = outter box
+    base = inner box
+    blank cells = 0
