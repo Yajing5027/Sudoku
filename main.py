@@ -1,7 +1,28 @@
 from generator import
 from checker import
 from display import
+def main():
+    board = generate_board()
+    print("Welcome to Sudoku!")
+    print_board(board)
 
+    while not is_solved(board):
+        print("\nMake a move:")
+        row = int(input("Row (0-8): "))
+        col = int(input("Column (0-8): "))
+        num = int(input("Number (1-9): "))
+
+        if is_valid_move(board, row, col, num):
+            board[row][col] = num
+            print("\nUpdated Board:")
+            print_board(board)
+        else:
+            print("❌ Invalid move, try again!")
+
+    print("\n🎉 You solved the Sudoku! 🎉")
+
+if __name__ == "__main__":
+    main()
 
 
 
