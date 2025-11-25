@@ -2,9 +2,12 @@ from generator import Board
 from checker import is_valid_move, is_solved
 from display import display_board
 def main():
-    board = generate_board()
+    game = Board(9)
+    game.complete_board()
+    board = game.remove_cells()
+
     print("Welcome to Sudoku!")
-    print_board(board)
+    display_board(board)
 
     while not is_solved(board):
         print("\nMake a move:")
@@ -15,7 +18,7 @@ def main():
         if is_valid_move(board, row, col, num):
             board[row][col] = num
             print("\nUpdated Board:")
-            print_board(board)
+            display_board(board)
         else:
             print("❌ Invalid move, try again!")
 
