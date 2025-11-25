@@ -1,4 +1,4 @@
-def is_move_valid(self,row,col,num):
+def is_move_valid(board,row,col,num):
   #checks the row
   if num in self.board[row]:
     return False
@@ -41,4 +41,5 @@ def is_solved(board):
 
     
     
+
 
