@@ -1,6 +1,6 @@
-from generator import
-from checker import
-from display import
+from generator import generate_board
+from checker import is_valid_move, is_solved
+from display import print_board
 def main():
     board = generate_board()
     print("Welcome to Sudoku!")
