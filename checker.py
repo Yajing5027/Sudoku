@@ -16,6 +16,29 @@ def is_move_valid(self,row,col,num):
   return True
 
 def is_solved(board):
-  if row in board:
+    # Check each row
+    for row in board:
+        if sorted(row) != list(range(1, 10)):
+            return False
+
+    # Check each column
+    for col in range(9):
+        column = [board[row][col] for row in range(9)]
+        if sorted(column) != list(range(1, 10)):
+            return False
+
+    # Check each 3x3 box
+    for box_row in range(0, 9, 3):
+        for box_col in range(0, 9, 3):
+            box = []
+            for r in range(3):
+                for c in range(3):
+                    box.append(board[box_row + r][box_col + c])
+            if sorted(box) != list(range(1, 10)):
+                return False
+
+    return True
+
     
     
+
