@@ -1,32 +1,30 @@
+# -*- coding: utf-8 -*-
+# display.py: displaying board, saving results to file
+
 class Sudoku:
- def __init__(self):
-   self.board=self.generate_board()
- def generate_board(self):
-    board = [
-    [0, 2, 7, 1, 0, 4, 3, 9, 0],
-    [0, 6, 5, 3, 2, 0, 1, 0, 8],
-    [3, 4, 1, 0, 0, 8, 7, 0, 2],
-    [5, 0, 3, 4, 0, 1, 0, 2, 7],
-    [4, 7, 2, 8, 3, 5, 9, 6, 1],
-    [6, 0, 8, 9, 7, 0, 4, 3, 5],
-    [7, 8, 0, 0, 1, 9, 5, 0, 4],
-    [1, 5, 0, 7, 8, 6, 2, 0, 9],
-    [2, 0, 9, 5, 4, 0, 6, 7, 0]
-]
-        
+    def __init__(self):
+        # Initialize Sudoku instance (currently no additional set need)
+        pass
 
-    return board
- def display_board(self):
-  print("   C1 C2 C3 C4 C5 C6 C7 C8 C9")
-  for i in range(9):
-    print(f'R{i+1} ',end="")
-    for j in range(9):
-      value=self.board[i][j]
-      if value == 0:
-         print("_", end="  ")  # show underscore for blanks
-      else:
-         print(value, end="  ")
+    def display_board(self, board, original_board=None):
+        # print row and column numbers, user inputs display with [ ] (if original_board provided)
+        size = len(board)  # get board size
+        print("   " + " ".join("C" + str(i+1) for i in range(size)))  # print column headers
+        for i in range(size):
+            row_str = "R" + str(i+1) + " "  # build row string
+            for j in range(size):
+                value = board[i][j]
+                if value == 0:
+                    row_str += "_  "  # show underscore for blanks
+                else:
+                    if original_board and original_board[i][j] == 0:
+                        row_str += "[" + str(value) + "] "  # user inputs display with [ ]
+                    else:
+                        row_str += str(value) + "  "  # original numbers display normal
+            print(row_str)  # print entire row
 
-    print()  # move to next li
-soduku=Sudoku()
-soduku.display_board()
+    def save_to_file(self, board, filename):
+        # save board to file
+        with open(filename, 'w') as f:
+            for row in board:
+                f.write(','.join(map(str, row)) + '\n')

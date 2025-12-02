@@ -1,12 +1,30 @@
 # Sudoku
-sudoku/
-├── main.py               # main entry
-├── generator.py   # create a puzzle (generates a complete Sudoku board + removes cells)
-├── checker.py     # checks whether valid and if puzzle solved
-├── display.py     # displaying Sudoku board
-└── README.md
 
-generator info:
-    size = outter box
-    base = inner box
-    blank cells = 0
+数独游戏项目，支持经典和探索两种模式。
+
+## 文件结构
+- `main.py`: 主入口，处理模式选择和用户交互。
+- `generator.py`: 生成谜题。
+- `checker.py`: 检查移动和解决状态。
+- `display.py`: 显示板和保存到文件。
+- `README.md`: 项目描述。
+
+## 玩法
+1. 运行 `python main.py`。
+2. 选择模式：
+   - **经典模式**：加载预定义唯一解谜题（从 `puzzles.txt` 读取）。适合传统玩家，必须遵循唯一解路径。
+   - **探索模式**：生成随机谜题（可能有多个解）。适合创意玩家，可以尝试不同输入路径。
+3. 查看显示的板（_ 表示空单元格）。
+4. 输入行、列、数字（1-9）填充空单元格。
+5. 如果输入有效，板更新；否则提示错误。
+6. 继续直到板完全填充且无冲突。
+7. 完成后，显示恭喜信息，结果保存到 `results.txt`。
+
+## 要求满足
+- 循环、选择语句、文件I/O。
+- 数据集合：列表（板）、集合（检查）、字典（可选）。
+- 函数：至少三个（is_move_valid, is_solved, display_board）。
+- 类：Board类（三个方法、两个实例变量）。
+
+## 运行
+确保有 `puzzles.txt`（经典模式谜题列表）。运行 `python main.py` 开始游戏。
