@@ -1,6 +1,5 @@
 # checker.py: check validity and solution status of Sudoku board, no external dependencies
 
-# -*- coding: utf-8 -*-
 def is_move_valid(board, row, col, num, size):
     # check if a move is valid: ensure numbers in row, column, and 3x3 box, no repetition
     base = int(size**0.5)  # calculate size of 3x3 box (3 for 9x9)

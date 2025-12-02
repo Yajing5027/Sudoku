@@ -1,30 +1,25 @@
-# Sudoku
+# SudoSudoku game project, supporting learning gameplay and classic game modes.
 
-数独游戏项目，支持经典和探索两种模式。
+## File Structure
+- `main.py`: Main program file: game flow, puzzle generate/load, game loop.
+- `generator.py`: generating puzzles, generating complete board, random cell remove, loading predefined puzzle.
+- `checker.py`: check validity and solution status of Sudoku board, no external dependencies
+- `display.py`: displaying board, saving results to file
+- `puzzles.txt`: predefined puzzle data file.
+- `README.md`: project description.
 
-## 文件结构
-- `main.py`: 主入口，处理模式选择和用户交互。
-- `generator.py`: 生成谜题。
-- `checker.py`: 检查移动和解决状态。
-- `display.py`: 显示板和保存到文件。
-- `README.md`: 项目描述。
+## Gameplay
+1. Run `python main.py`.
+2. Choose mode:
+   - **Learning gameplay**: generate puzzle 20% blanks, so it's easy to fill, no fixed answer, no unique solution.
+   - **Start the game**: select difficulty (Simple to Hell), load predefined puzzles.
+3. View the displayed board (_ for blanks, [number] for user inputs).
+4. Input format:
+   - row,col,number (e.g., 1,2,5) to fill a number
+   - r,row,col (e.g., r,1,2) to remove a filled number
+5. If valid, board updates; else error message.
+6. Continue until completed or enter 'start' to begin the game.
+7. When completed, print "Congratulations! Puzzle completed.", save results to `results.txt`.
 
-## 玩法
-1. 运行 `python main.py`。
-2. 选择模式：
-   - **经典模式**：加载预定义唯一解谜题（从 `puzzles.txt` 读取）。适合传统玩家，必须遵循唯一解路径。
-   - **探索模式**：生成随机谜题（可能有多个解）。适合创意玩家，可以尝试不同输入路径。
-3. 查看显示的板（_ 表示空单元格）。
-4. 输入行、列、数字（1-9）填充空单元格。
-5. 如果输入有效，板更新；否则提示错误。
-6. 继续直到板完全填充且无冲突。
-7. 完成后，显示恭喜信息，结果保存到 `results.txt`。
-
-## 要求满足
-- 循环、选择语句、文件I/O。
-- 数据集合：列表（板）、集合（检查）、字典（可选）。
-- 函数：至少三个（is_move_valid, is_solved, display_board）。
-- 类：Board类（三个方法、两个实例变量）。
-
-## 运行
-确保有 `puzzles.txt`（经典模式谜题列表）。运行 `python main.py` 开始游戏。
+## Run
+Ensure `puzzles.txt` file exists. Run `python main.py` to start.

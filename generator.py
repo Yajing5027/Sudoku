@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # generator.py: generating puzzles, generating complete board, random cell remove, loading predefined puzzle.
  
 import random
