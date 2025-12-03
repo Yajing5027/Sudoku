@@ -1,30 +1,31 @@
-# display.py: 负责显示数独板和保存结果，不依赖外部模块
+# display.py: displaying board with row/col index, saving result to file.
 
 class Sudoku:
-    # Sudoku类：负责显示板和保存结果
+    # Sudoku class: handle show board and save result
+    # Sudoku
     def __init__(self):
-        # 初始化Sudoku实例（目前无需额外设置）
+        # Init Sudoku instance (no need extra setting now)
         pass
 
     def display_board(self, board, original_board=None):
-        # 显示数独板：打印行号、列号，用户输入用[ ]包围（如果original_board提供）
-        size = len(board)  # 获取板的大小
-        print("   " + " ".join("C" + str(i+1) for i in range(size)))  # 打印列标题
+        # Show sudoku board: print row number, col number, user input use [ ] wrap (if original_board give)
+        size = len(board)  # get board size
+        print("   " + " ".join("C" + str(i+1) for i in range(size)))  # print col title
         for i in range(size):
-            row_str = "R" + str(i+1) + " "  # 构建行字符串
+            row_str = "R" + str(i+1) + " "  # build row string
             for j in range(size):
                 value = board[i][j]
                 if value == 0:
-                    row_str += "_  "  # 空位显示_
+                    row_str += "_  "  # empty show _
                 else:
                     if original_board and original_board[i][j] == 0:
-                        row_str += "[" + str(value) + "] "  # 用户输入用[ ]
+                        row_str += "[" + str(value) + "] "  # user input use [ ]
                     else:
-                        row_str += str(value) + "  "  # 原始数字正常显示
-            print(row_str)  # 打印整行
+                        row_str += str(value) + "  "  # original number normal show
+            print(row_str)  # print whole row
 
     def save_to_file(self, board, filename):
-        # 保存板到文件：每行一个CSV格式的行
+        # Save board to file: each row one line
         with open(filename, 'w') as f:
             for row in board:
-                f.write(','.join(map(str, row)) + '\n')  # 将行转换为逗号分隔字符串
+                f.write(','.join([str(x) for x in row]) + '\n')  # change row , separate string
