@@ -1,4 +1,4 @@
-# SudoSudoku game project.
+# Sudoku game (predefined puzzles version)
 
 ## File Structure
 - `main.py`: Main program file: game flow, puzzle generate/load, game loop.
@@ -11,8 +11,8 @@
 1. Run `python main.py`.
 2. Choose mode:
    - **Learning gameplay**: generate puzzle 20% blanks, so it's easy to fill, no fixed answer, no unique solution.
-   - **Start the game**: select difficulty (Simple to Hell), load predefined puzzles.
-3. View the displayed board (_ for blanks, [number] for user inputs).
+   - **Start the game**: select difficulty (Simple to Hell), load predefined puzzles that have unique solution.
+3. View the displayed board (_ for blanks, [] for user inputs).
 4. Input format:
    - row,col,number (e.g., 1,2,5) to fill a number
    - r,row,col (e.g., r,1,2) to remove a filled number
@@ -31,5 +31,5 @@ Run `python main.py` to start.
 - Logical Flow: well-commented code and clear naming conventions. - all files
 - Nested Loops and Conditions: meaningful nested loops and selection statements. - generator.py, display.py, main.py
 - File I/O: read or write data to a file, with columns properly delimited. - display.py, main.py
-![Saved result & terminal output](images/sudoku_results_and_console.png)
+![Saved result & terminal output](images/results-txt-show.png)
 - Use of Functions and Classes: divided into functions and classes for logical organization and reusability. - all files
