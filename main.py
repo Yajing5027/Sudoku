@@ -34,7 +34,7 @@ def start_game():
                     inp = input("Please make a move: ").split(',')  # get user input, split to list
                     if len(inp) == 3 and inp[0].strip() != 'r':
                         # Handle filling number: row,col,number
-                        row, col, num = map(int, [x.strip() for x in inp])
+                        row, col, num = [int(x.strip()) for x in inp]
                         row -= 1  # transfer to 0-based index
                         col -= 1
                         if 0 <= row < 9 and 0 <= col < 9 and 1 <= num <= 9 and puzzle[row][col] == 0:
@@ -44,6 +44,9 @@ def start_game():
                                 if is_solved(puzzle, 9) and puzzle == answer:  # check completed
                                     print("Congratulations! Puzzle completed.")
                                     display.save_to_file(puzzle, "results.txt")  # save results
+                                    with open("results.txt", "r") as f:
+                                        print("Saved result:")
+                                        print(f.read())
                                     return
                             else:
                                 print("Invalid: conflict")
@@ -51,7 +54,7 @@ def start_game():
                             print("Error: position already filled or invalid")
                     elif len(inp) == 3 and inp[0].strip() == 'r':
                         # Handle removing number: r,row,col
-                        row, col = map(int, inp[1:])
+                        row, col = [int(x) for x in inp[1:]]
                         row -= 1
                         col -= 1
                         if 0 <= row < 9 and 0 <= col < 9 and puzzle[row][col] != 0 and puzzle[row][col] != original_puzzle[row][col]:
@@ -109,7 +112,7 @@ def main():
                 inp = inp.split(',')
                 if len(inp) == 3 and inp[0].strip() != 'r':
                     # Handle filling number: row,col,number
-                    row, col, num = map(int, [x.strip() for x in inp])
+                    row, col, num = [int(x.strip()) for x in inp]
                     row -= 1
                     col -= 1
                     if 0 <= row < 9 and 0 <= col < 9 and 1 <= num <= 9 and puzzle[row][col] == 0:
@@ -122,7 +125,7 @@ def main():
                         print("Error: position already filled or invalid")
                 elif len(inp) == 3 and inp[0].strip() == 'r':
                     # Handle removing number: r,row,col
-                    row, col = map(int, inp[1:])
+                    row, col = [int(x) for x in inp[1:]]
                     row -= 1
                     col -= 1
                     if 0 <= row < 9 and 0 <= col < 9 and puzzle[row][col] != 0 and puzzle[row][col] != original_puzzle[row][col]:

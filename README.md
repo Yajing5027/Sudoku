@@ -1,11 +1,10 @@
-# SudoSudoku game project, supporting learning gameplay and classic game modes.
+# SudoSudoku game project.
 
 ## File Structure
 - `main.py`: Main program file: game flow, puzzle generate/load, game loop.
 - `generator.py`: generating puzzles, generating complete board, random cell remove, loading predefined puzzle.
 - `checker.py`: check validity and solution status of Sudoku board, no external dependencies
 - `display.py`: displaying board, saving results to file
-- `puzzles.txt`: predefined puzzle data file.
 - `README.md`: project description.
 
 ## Gameplay
@@ -22,4 +21,15 @@
 7. When completed, print "Congratulations! Puzzle completed.", save results to `results.txt`.
 
 ## Run
-Ensure `puzzles.txt` file exists. Run `python main.py` to start.
+Run `python main.py` to start.
+
+## Project Requirement Checklist
+- Programming Constructs: loops, selection statements (e.g., if, while), and file I/O. - main.py, checker.py, display.py, generator.py
+- Data Collections: at least three distinct collections (lists, sets, or dictionaries). - lists in all files, dictionaries in main.py
+- Functions and Classes: at least three functions. - checker.py, generator.py, main.py
+- At least one class with at least three methods and two instance variables. - Board in generator.py, Sudoku in display.py
+- Logical Flow: well-commented code and clear naming conventions. - all files
+- Nested Loops and Conditions: meaningful nested loops and selection statements. - generator.py, display.py, main.py
+- File I/O: read or write data to a file, with columns properly delimited. - display.py, main.py
+![Saved result & terminal output](images/sudoku_results_and_console.png)
+- Use of Functions and Classes: divided into functions and classes for logical organization and reusability. - all files
