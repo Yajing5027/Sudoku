@@ -1,4 +1,4 @@
-# checker.py: check validity and solution status of Sudoku board, no external dependencies
+# checker.py: check solution status of Sudoku board, no external dependencies
 
 def is_move_valid(board, row, col, num, size):
     # check if a move is valid: ensure numbers in row, column, and 3x3 box, no repetition
@@ -46,25 +46,3 @@ def is_solved(board, size):
             if len(box_set) != size:
                 return False
     return True
-
-def is_board_valid(board, size):
-    # check if current board is valid: ignore 0, ensure no repetition in rows, columns, and boxes
-    base = int(size**0.5)
-    for row in range(size):
-        row_list = [x for x in board[row] if x != 0]
-        if len(set(row_list)) != len(row_list):
-            return False
-    for col in range(size):
-        col_list = [board[r][col] for r in range(size) if board[r][col] != 0]
-        if len(set(col_list)) != len(col_list):
-            return False
-    for box_r in range(0, size, base):
-        for box_c in range(0, size, base):
-            box_list = []
-            for r in range(box_r, box_r + base):
-                for c in range(box_c, box_c + base):
-                    if board[r][c] != 0:
-                        box_list.append(board[r][c])
-            if len(set(box_list)) != len(box_list):
-                return False
-    return True 
